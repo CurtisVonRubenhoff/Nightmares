@@ -39,7 +39,7 @@ public class PlayerCharacterMoverScript : MonoBehaviour {
         }
 
         float input = (canMove) ? inputH : (inputH >= 0) ? 1f : -1f;
-        gameSound.panStereo = inputH;
+        gameSound.panStereo = inputH * -1f;
 
         this.transform.localEulerAngles = new Vector3(0, (input * maxYRotation), (input * maxZRotation));
         cheracterGobalTransform.Rotate(Vector3.forward, rotateSpeed * input * Time.deltaTime);

@@ -250,11 +250,13 @@ public class GameManager : MonoBehaviour {
   }
 
   public void ClearPillars() {
-    var pillars = GameObject.FindGameObjectsWithTag("Pillar");
-
-    foreach(var pillar in pillars) {
-      Destroy(pillar);
+    foreach(var spawner in spawnerList) {
+      spawner.GetComponent<EnemySpawner>().ClearEnemies();
     }
+  }
+
+  public void QuitGame() {
+    Debug.Log("quit");
   }
 
 	public bool DoIShoot(GameObject thisSpawner) {

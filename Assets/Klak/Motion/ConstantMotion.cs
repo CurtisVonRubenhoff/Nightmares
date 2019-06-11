@@ -145,6 +145,20 @@ namespace Klak.Motion
         {
             _randomVectorT = Random.onUnitSphere;
             _randomVectorR = Random.onUnitSphere;
+
+            var difficulty = PlayerPrefs.GetInt("difficulty", 0);
+
+            switch (difficulty) {
+              case 1:
+                translationSpeed = -9f;
+                break;
+              case 2:
+                translationSpeed = -10f;
+                break;
+              default:
+                translationSpeed = -8f;
+                break;
+            }
         }
 
         void Update()

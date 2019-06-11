@@ -21,6 +21,12 @@ public class EnemySpawner : MonoBehaviour {
     GM.EnemySpawners += CreateEnemy;
 	}
 
+  public void ClearEnemies() {
+    foreach(var enemy in EnemyObjectPool) {
+      enemy.SetActive(false);
+    }
+  }
+
   public void CreateEnemy() {
     // asks the game manager if it should shoot
     if (GM.DoIShoot(gameObject)) {
